@@ -54,13 +54,16 @@ class App extends Component {
         <Header balance={balance} income={incomeTotal} spend={spendTotoal} />
         <div className="container">
           <Form addList addIncome={this.onClick.bind(this, "income")} addSpend={this.onClick.bind(this, "spend")} />
+          <br /><br />
           <div>
             {this.state.list.map(function(item, index){
               let classes = item.isIncome ? 'income' : 'spend';
               return <div className={classes} key={index}>
                 <p>{item.date}<br/><span className="amount">{item.amount}</span></p>
                 <h4>{item.title}</h4>
-                <span className="close" onClick={this.removeList.bind(this, index)}>X</span>
+                <button type="button" class="close" aria-label="Close" onClick={this.removeList.bind(this, index)}>
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
             }, this)}
           </div>
