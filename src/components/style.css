@@ -1,5 +1,5 @@
 .spend, .income {
-	border-bottom: 2px solid #000;
+	border-bottom: 2px solid #f3f3f3;
 	display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,3 +10,4 @@
 .income .amount { color: green; }
 .spend .amount { color: red; }
 
+span { font-weight: bold; }

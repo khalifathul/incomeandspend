@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import Form from './components/Form';
-import List from './components/List';
-import './App.css';
+import Header from './Header';
+import Form from './Form';
+import List from './List';
+import './style.css';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +19,12 @@ class App extends Component {
         today = `${newDate.getDate()}.${newDate.getMonth()}.${newDate.getFullYear()}`;
     if(title.value !== "" && amount.value !== "") {
       this.setState({ 
-        list: this.state.list.concat([{
+        list: [...this.state.list, {
           title: title.value,
           amount: amount.value,
           date: today,
           isIncome: e === "income" ? true : false
-        }])
+        }]
       })
       title.value = "";
       amount.value = "";
@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   removeList(index) {
-    console.log(index)
     this.setState({
       list: this.state.list.filter((x,i) => i !== index )
     });
