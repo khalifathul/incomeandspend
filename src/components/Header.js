@@ -11,7 +11,7 @@ const Header = (props) => {
   return (
 	  <div style={appHeader}>
 	  	<div className="container">
-		    <h2>Balance</h2>
+		    <h1 class="display-6">Balance</h1>
 		    <h3>{balance} CZK</h3>
 		    <div>
 		    	<span style={{color: "green", marginRight: 20}}>Income: {income}Kc</span>

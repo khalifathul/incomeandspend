@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
+import List from './components/List';
 import './App.css';
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
   }
 
   removeList(index) {
+    console.log(index)
     this.setState({
       list: this.state.list.filter((x,i) => i !== index )
     });
@@ -55,18 +57,7 @@ class App extends Component {
         <div className="container">
           <Form addList addIncome={this.onClick.bind(this, "income")} addSpend={this.onClick.bind(this, "spend")} />
           <br /><br />
-          <div>
-            {this.state.list.map(function(item, index){
-              let classes = item.isIncome ? 'income' : 'spend';
-              return <div className={classes} key={index}>
-                <p>{item.date}<br/><span className="amount">{item.amount}</span></p>
-                <h4>{item.title}</h4>
-                <button type="button" class="close" aria-label="Close" onClick={this.removeList.bind(this, index)}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            }, this)}
-          </div>
+          <List list={this.state.list} removeList={this.removeList.bind(this)} />
         </div>
       </div>
     );
